@@ -35,6 +35,7 @@ namespace RetoLista
                 String name = iterator.next();
                 Console.WriteLine(name);
             }
+            Console.WriteLine("\n");
 
             //Debio haber impreso 
             //Marco
@@ -57,7 +58,9 @@ namespace RetoLista
             //Juan
 
             team1.remove(0);
+            team1.remove(2);
             team1.addAtFront("Isai");
+            team1.addAtTail("Francisco");
             Console.WriteLine("Team 1 tiene: " + team1.getSize() + " integrantes ");//Debe imprimir "Team 1 tiene 4 integrantes"
 
             iterator = team1.getIterator();
@@ -72,11 +75,12 @@ namespace RetoLista
             //Isai
             //Raul
             //Ivan
-            //Anahi
+            //Francisco
 
             team2.remove(2);
+            team2.addAtFront("Mario");
             team2.addAtTail("Imelda");
-            Console.WriteLine("Team 2 tiene: " + team2.getSize() + " integrantes ");//Debe imprimir "Team 2 tiene 4 integrantes
+            Console.WriteLine("Team 2 tiene: " + team2.getSize() + " integrantes ");//Debe imprimir "Team 2 tiene 5 integrantes
 
             iterator = team2.getIterator();
 
@@ -87,6 +91,7 @@ namespace RetoLista
             }
 
             //Debio haber impreso 
+            //Mario
             //Kevin
             //Luis
             //Juan
@@ -96,6 +101,8 @@ namespace RetoLista
             team3.remove(0);
 
             team3.addAtTail("Misael");
+            team3.addAtFront("Popeye");
+            team3.remove(0);
             team3.addAtFront("Daniel");
 
             Console.WriteLine("Team 3 tiene: " + team3.getSize() + " integrantes"); //Debe imprimir "Team 3 tiene 2 integrantes"
@@ -131,7 +138,7 @@ namespace RetoLista
             //Isai
             //Raul
             //Roberto
-            //Anahi
+            //Francisco
         }
     }
 }
