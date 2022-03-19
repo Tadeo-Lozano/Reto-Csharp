@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace RetoLista
 {
-    internal class arrayList
+    internal class arrayList<T> : List<T>
     {
         public const int DEFAULT_SIZE = 50;
-        private String[] array;
+        private T[] array;
         private int size;
 
         public arrayList()
         {
-            array = new String[DEFAULT_SIZE];
+            array = new T[DEFAULT_SIZE];
         }
 
         public arrayList(int size)
         {
-            array = new String[size];
+            array = new T[size];
         }
 
-        public void addAtTail(String data)
+        public void addAtTail(T data)
         {
             if (size == array.Length)
             {
@@ -33,7 +33,7 @@ namespace RetoLista
             size++;
         }
 
-        public void addAtFront(String data)
+        public void addAtFront(T data)
         {
             if (size >= 0)
             {
@@ -54,7 +54,7 @@ namespace RetoLista
             {
                 Array.Copy(array, index + 1, array, index, size - 1 - index);
             }
-            array[size - 1] = null;
+            array[size - 1] = default(T);
             size--;
         }
 
@@ -62,12 +62,12 @@ namespace RetoLista
         {
             for (int i = 0; i < size; i++)
             {
-                array[i] = null;
+                array[i] = default(T);
             }
             size = 0;
         }
 
-        public void setAt(int index, String data)
+        public void setAt(int index, T data)
         {
             if (index >= 0 && index < size)
             {
@@ -79,14 +79,14 @@ namespace RetoLista
          * @param index 0-index
          * @return element at position index
          */
-        public String getAt(int index)
+        public T getAt(int index)
         {
-            return index >= 0 && index < size ? array[index] : null;
+            return index >= 0 && index < size ? array[index] : default(T);
         }
 
-        public ArrayListIterator getIterator()
+        public Iterator<T> getIterator()
         {
-            return new ArrayListIterator(this);
+            return new ArrayListIterator<T>(this);
         }
 
         public int getSize()
@@ -96,7 +96,7 @@ namespace RetoLista
 
         private void increaseArraySize()
         {
-            String[] newArray = new String[array.Length * 2];
+            T[] newArray = new T[array.Length * 2];
 
             for (int i = 0; i < size; i++)
             {

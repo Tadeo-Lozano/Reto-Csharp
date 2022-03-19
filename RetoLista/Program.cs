@@ -10,9 +10,9 @@ namespace RetoLista
     {
         static void Main(string[] args)
         {
-            arrayList team1 = new arrayList();
-            arrayList team2 = new arrayList();
-            arrayList team3 = new arrayList();
+            List<String> team1 = new arrayList<String>();
+            List<String> team2 = new arrayList<String>();
+            List<String> team3 = new arrayList<String>();
 
             team1.addAtTail("Marco");
             team1.addAtTail("Raul");
@@ -26,7 +26,7 @@ namespace RetoLista
 
             team3.addAtFront("Tadeo");
 
-            ArrayListIterator iterator;
+            Iterator<String> iterator;
 
             iterator = team1.getIterator();
 

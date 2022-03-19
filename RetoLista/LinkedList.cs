@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace RetoLista
 {
-    internal class LinkedList
+    internal class LinkedList<T> : List<T>
     {
-        private Node head;
-        private Node tail;
+        private Node<T> head;
+        private Node<T> tail;
         private int size;
 
-        public void addAtTail(String data)
+        public void addAtTail(T data)
         {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
 
             if (size == 0)
             {
@@ -30,9 +30,9 @@ namespace RetoLista
             size++;
         }
 
-        public void addAtFront(String data)
+        public void addAtFront(T data)
         {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
 
             if (size == 0)
             {
@@ -50,7 +50,7 @@ namespace RetoLista
 
         public void remove(int index)
         {
-            Node node = findNode(index);
+            Node<T> node = findNode(index);
 
             if (node == null)
             {
@@ -93,9 +93,9 @@ namespace RetoLista
             size = 0;
         }
 
-        public void setAt(int index, String data)
+        public void setAt(int index, T data)
         {
-            Node node = findNode(index);
+            Node<T> node = findNode(index);
 
             if (node != null)
             {
@@ -107,16 +107,16 @@ namespace RetoLista
          * @param index 0-index
          * @return element at position index
          */
-        public String getAt(int index)
+        public T getAt(int index)
         {
-            Node node = findNode(index);
+            Node<T> node = findNode(index);
 
-            return node == null ? null : node.data;
+            return node == null ? default(T) : node.data;
         }
 
-        public LinkedListIterator getIterator()
+        public Iterator<T> getIterator()
         {
-            return new LinkedListIterator(head);
+            return new LinkedListIterator<T>(head);
         }
 
         public int getSize()
@@ -124,7 +124,7 @@ namespace RetoLista
             return size;
         }
 
-        private Node findNode(int index)
+        private Node<T> findNode(int index)
         {
 
             if (index < 0 || index >= size)
@@ -132,7 +132,7 @@ namespace RetoLista
                 return null;
             }
 
-            Node node = head;
+            Node<T> node = head;
             int currentIndex = 0;
 
             while (currentIndex != index)

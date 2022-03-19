@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RetoLista
 {
-    internal class ArrayListIterator
+    internal class ArrayListIterator<T> : Iterator<T>
     {
-        private arrayList ArrayList;
+        private arrayList<T> ArrayList;
         private int currentItem;
 
-        public ArrayListIterator(arrayList arrayList)
+        public ArrayListIterator(arrayList<T> arrayList)
         {
             this.ArrayList = arrayList;
         }
@@ -21,9 +21,9 @@ namespace RetoLista
             return currentItem < ArrayList.getSize();
         }
 
-        public String next()
+        public T next()
         {
-            String data = ArrayList.getAt(currentItem);
+            T data = ArrayList.getAt(currentItem);
 
             currentItem++;
 

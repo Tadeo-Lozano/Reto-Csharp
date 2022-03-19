@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RetoLista
 {
-    internal class LinkedListIterator
+    internal class LinkedListIterator<T> : Iterator<T>
     {
-        private Node currentNode;
+        private Node<T> currentNode;
 
-        public LinkedListIterator(Node startNode)
+        public LinkedListIterator(Node<T> startNode)
         {
             currentNode = startNode;
         }
@@ -20,9 +20,9 @@ namespace RetoLista
             return currentNode != null;
         }
 
-        public String next()
+        public T next()
         {
-            String data = currentNode.data;
+            T data = currentNode.data;
 
             currentNode = currentNode.next;
 

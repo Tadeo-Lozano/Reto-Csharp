@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="arrayList.cs" />
     <Compile Include="ArrayListIterator.cs" />
+    <Compile Include="Iterator.cs" />
     <Compile Include="LinkedList.cs" />
     <Compile Include="LinkedListIterator.cs" />
+    <Compile Include="List.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
